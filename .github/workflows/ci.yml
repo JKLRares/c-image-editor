@@ -1,0 +1,20 @@
+name: C build and regression tests
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - name: Debug and release regression tests
+        run: make -j2 test test-release
+      - name: AddressSanitizer and UndefinedBehaviorSanitizer
+        run: make -j2 test-sanitize
+      - name: GCC static analysis
+        run: make analyze
+      - name: Build source export without assignment assets
+        run: python3 -B tools/check_export.py --sanitize

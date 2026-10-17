@@ -1,0 +1,25 @@
+# Include project sources; exclude local coursework assets and generated output.
+/*
+!/.gitignore
+!/Makefile
+!/README
+!/README.md
+!/image_editor.c
+!/editor/
+!/tests/
+!/bench/
+!/tools/
+!/docs/
+!/.github/
+!/LICENSE
+
+# Generated files inside admitted directories
+*.o
+*.d
+*.out
+*.exe
+__pycache__/
+*.pyc
+*.gcda
+*.gcno
+*.gcov
