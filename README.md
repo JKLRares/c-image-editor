@@ -147,4 +147,5 @@ make test-sanitize ASAN_OPTIONS=detect_leaks=0:allocator_may_return_null=1
 
 This runs ASan/UBSan without leak detection; Valgrind checks leaks separately.
 The GitHub Actions workflow runs independent tests, sanitizers, analysis and the
-source-export check. Hosted CI has not yet been verified.
+source-export check. [Hosted CI passed on Ubuntu 24.04](https://github.com/JKLRares/c-image-editor/actions/runs/39080046115)
+for commit `27ed97d`.

@@ -151,4 +151,6 @@ Local sanitizer runs disabled LeakSanitizer because process tracing prevents it
 from running. Native/CI defaults enable it; Valgrind separately checks leaks.
 The [workflow](../.github/workflows/ci.yml) uses Ubuntu 24.04, read-only repository
 permissions and a pinned checkout action. Its commands have passed locally;
-hosted Actions and native LeakSanitizer execution remain unverified.
+[hosted run 39080046115](https://github.com/JKLRares/c-image-editor/actions/runs/39080046115)
+also passed for commit `27ed97d`, including sanitizer tests and the sanitized
+source-export check with `ASAN_OPTIONS=detect_leaks=1:allocator_may_return_null=1`.
